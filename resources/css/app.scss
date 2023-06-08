@@ -1,0 +1,68 @@
+
+//Colors(changed)
+
+
+$primary: #1F405E;
+$secondary: #4c225b;
+$success: #28a745;
+$info: #7b3b92;
+$warning: #dfa700;
+$danger: #dc3545;
+$light: #2c2c2c;
+$dark: #222222;
+$white: #ffffff;
+$black: #000000;
+
+
+$gray-100: #7e7e7e;
+$body-bg: #1b1b1b;
+
+//Custom Colors
+$waiting: #5900ff;
+$waiting-light: #6e55ff;
+
+$goofypurple: #6f42c1;
+$goofypurple-light: #9582ff;
+
+$dark-light: #2c2c2c;
+$darker: #1b1b1b;
+
+$ready: #00ffbf;
+
+
+
+//shadows
+
+$box-shadow:                  0 .5rem 1rem rgba($black, .15);
+$box-shadow-sm:               0 .5rem .3rem rgba($black, .2);
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075);
+
+//buttons
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+
+$custom-button-colors: (
+    "doug": $goofypurple,
+    "doug-light": $goofypurple-light,
+    "waiting": $waiting,
+    "waiting-light": $waiting-light,
+    "dark-light": $dark-light,
+    "darker": $darker,
+    "ready": $ready,
+);
+$theme-colors: map-merge($theme-colors, $custom-button-colors);
+
+
+
+
+
+
+
+
+
+
+@import 'bootstrap/scss/bootstrap';
+
+
