@@ -76,15 +76,19 @@
                   </div>
                     <div class="col-2">
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown text-center rounded-3 ms-2 w-100 shadow-sm" style="background: rgb(76, 34, 91);">
+                        <li class="nav-item dropdown text-center rounded-3 ms-2 w-100 shadow-sm dropend" style="background: rgb(76, 34, 91);">
                           <a class="nav-link dropdown-toggle @if(Route::current()->getName()=='admin.index' or Route::current()->getName()=='profesor.forum' or Route::current()->getName()=='revision.show' ) active @endif " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-user @if(Route::current()->getName()=='admin.index' or Route::current()->getName()=='profesor.forum' or Route::current()->getName()=='revision.show' ) fa-beat @endif "></i> Gestion
                           </a>
-                          <ul class="dropdown-menu" data-bs-theme="dark">
-                            <li><a class="dropdown-item" href="{{route('admin.index')}}">Administrador</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ route('profesor.forum') }}">Profesor</a></li>
+                          <ul class="dropdown-menu shadow-sm rounded-3 ms-2 border-0" data-bs-theme="dark">
+                            <li><h3><a class="dropdown-header fs-5 d">Administrador</a></h3></li>
+                            <li><a class="dropdown-item" href="{{route('admin.profesores')}}">Profesores</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.estudiantes') }}">Alumnos</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.forum') }}">Estado de propuestas</a></li>
+                            <li><h3><a class="dropdown-header fs-5 disabled mt-2">Profesor</a></h3></li>
+                            <li><a class="dropdown-item" href="{{route('profesor.forum')}}">Propuestas y comentarios</a></li>
                           </ul>
+                          
                         </li>
                       </ul>
                     </div>

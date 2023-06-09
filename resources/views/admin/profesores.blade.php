@@ -18,7 +18,7 @@
                   <div class="row p-0 m-0">
                     <div class="col-4 p-0 m-0">
                       <h5 class="p-0 m-0">
-                        <a href="{{ route('admin.index')}}" class="btn border border-2 border-info bg-dark rounded-5 shadow-sm m-0 p-0 ps-2 pe-2"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+                        <a href="{{ route('home.index')}}" class="btn border border-2 border-info bg-dark rounded-5 shadow-sm m-0 p-0 ps-2 pe-2"><i class="fa-solid fa-arrow-left"></i> Volver</a>
                       </h5>
                     </div>
                     <div class="col-4 p-0 m-0">
@@ -27,6 +27,30 @@
                   </div>
                 </div>
                 <ul class="list-group list-group rounded-3 pt-2 m-4" data-bs-theme="dark">
+                    <div class="dropdown dropend">
+                      <button type="button" class="btn btn-primary dropdown-toggle d-flex border-2 border-info shadow-sm justify-content-between rounded-4 mb-4 align-items-start bg-secondary" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        Agregar Profesor
+                      </button>
+                      <form action="{{route('admin.crearProfesor')}}" class="dropdown-menu rounded-4 shadow-sm border-2 p-1 ms-2" data-bs-theme="dark" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="row">
+                          <div class="col">
+                            <input type="text" class="form-control rounded-4" placeholder="Nombre" aria-label="Nombre" name="nombre">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control rounded-4" placeholder="Apellido" aria-label="Apellido" name="apellido">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control rounded-4" placeholder="Rut" aria-label="Rut" name="rut">
+                          </div>
+                          <div class="col-3">
+                            <button type="submit" class="btn btn-doug w-100 rounded-4 border-2 border-doug-light">Crear</button>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
                   @foreach($profesores as $profesor)
                     <li class="list-group-item d-flex border-2 shadow-sm pe-0 justify-content-between rounded-4 mb-3 align-items-start">
                       <div class="ms-2 me-auto">

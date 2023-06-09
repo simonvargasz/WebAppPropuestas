@@ -45,44 +45,6 @@
                       <h5 class="card-title">Autor: {{$propuestas->estudiante->nombre}} {{$propuestas->estudiante->apellido}}</h5>
                       <p class="card-text">Rut: {{$propuestas->estudiante->rut}}</p>
                       <a href="{{$propuestas->documento}}" class="btn btn-doug border-doug-light border-2 border-doug shadow-sm rounded-4"><i class="fa-solid fa-file-arrow-down"></i> PDF</a>
-                      <form action="{{route('admin.updatePropuesta',['id' => $propuestas->id])}}" method="POST" class="mt-3">
-                        @csrf
-                        @method('PUT')
-                        <h5>Estado</h5>
-                        <hr class="border border-2 rounded-5 border-white">
-                        <div class="container border border-2 bg-dark rounded-4 p-1 shadow-sm">
-                          <div class="row">
-                            <div class="col-2 p-0 ps-3">
-                              <div class="form-check form-switch rounded-4 m-0 me-3">
-                                <input class="form-check-input" type="radio" role="switch" name="estado" value="3" id="flexRadioDefault1" @if($propuestas->estado == 3) checked @endif>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Aprobada
-                                </label>
-                              </div>
-                            </div>
-                            <div class="col-2 p-0">
-                              <div class="form-check form-switch m-0 me-3">
-                                <input class="form-check-input" type="radio" role="switch" name="estado" value="2" id="flexRadioDefault1" @if($propuestas->estado == 2) checked @endif>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Rechazada
-                                </label>
-                              </div>
-                            </div>
-                            <div class="col-3 p-0">
-                              <div class="form-check form-switch m-0">
-                                <input class="form-check-input" type="radio" role="switch" name="estado" value="1" id="flexRadioDefault1" @if($propuestas->estado == 1) checked @endif>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Necesita Modificaciones
-                                </label>
-                              </div>
-                            </div>
-                            <div class="col-5 d-flex justify-content-end p-0 pe-3">
-                              <button type="submit" class="btn btn border border-2 border-info rounded-pill p-0 m-0 pe-1 ps-1"><i class="fa-solid fa-arrows-rotate"></i> Actualizar</button>
-                            </div>
-                          </div>
-                        </div>
-
-                      </form>
                     </div>
                 </div>
             </div>

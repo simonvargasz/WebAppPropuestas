@@ -28,12 +28,15 @@ Route::get('/admin',function() {return view('admin/index');})->name('admin.index
 Route::get('/admin/estudiantes', [EstudianteController::class, 'show'])->name('admin.estudiantes');
 Route::get('/admin/estudiante/{rut}', [EstudianteController::class, 'showEstudiante'])->name('admin.verEstudiante');
 Route::put('/admin/estudiante/{rut}/actualizar', [EstudianteController::class, 'update'])->name('admin.updateEstudiante');
+Route::post('/admin/estudiante/crear', [EstudianteController::class, 'createEstudiante'])->name('admin.crearEstudiante');
 
+Route::get('/admin/estado_de_propuestas', [PropuestaController::class, 'showEstados'])->name('admin.forum');
 Route::put('/admin/propuesta/{id}/actualizar', [PropuestaController::class, 'update'])->name('admin.updatePropuesta');
 
 Route::get('/admin/profesores', [ProfesorController::class, 'showProfesores'])->name('admin.profesores');
 Route::get('/admin/profesor/{rut}', [ProfesorController::class, 'showProfesor'])->name('admin.verProfesor');
 Route::put('/admin/profesor/{rut}/actualizar', [ProfesorController::class, 'update'])->name('admin.updateProfesor');
+Route::post('/admin/profesor/crear', [ProfesorController::class, 'createProfesor'])->name('admin.crearProfesor');
 
 
 //Profesores

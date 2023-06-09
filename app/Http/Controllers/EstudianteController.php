@@ -25,12 +25,19 @@ class EstudianteController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+
+    public function createEstudiante(Request $request)
     {
-        //
+        $estudiante = new Estudiante();
+
+        $estudiante->rut = $request->rut;
+        $estudiante->nombre = $request->nombre;
+        $estudiante->apellido = $request->apellido;
+        $estudiante->email = $request->email;
+
+        $estudiante->save();
+
+        return redirect()->route('admin.estudiantes');
     }
 
     /**

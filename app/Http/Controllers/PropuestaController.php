@@ -85,11 +85,9 @@ class PropuestaController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Propuesta $propuesta)
+    public function showEstados(Request $request)
     {
-        //
+        $propuestas = Propuesta::orderBy('fecha', 'desc')->get();
+        return view('admin/estados',compact('propuestas'));
     }
 }

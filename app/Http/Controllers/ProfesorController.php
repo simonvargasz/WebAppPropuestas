@@ -64,11 +64,12 @@ class ProfesorController extends Controller
         return redirect()->route('admin.profesores');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Profesor $profesor)
-    {
-        //
+    public function createProfesor(Request $request){
+        $profesor = new Profesor();
+        $profesor->rut = $request->rut;
+        $profesor->nombre = $request->nombre;
+        $profesor->apellido = $request->apellido;
+        $profesor->save();
+        return redirect()->route('admin.profesores');
     }
 }
