@@ -14,8 +14,7 @@ class ProfesorPropuestaController extends Controller
     {
 
         DB::table('profesor_propuesta')->where('comentario', $comentario)->delete();
-    
-        // Puedes agregar un mensaje de éxito en la sesión
+        
         session()->flash('success', 'Registro eliminado exitosamente');
     
         return redirect()->back();
