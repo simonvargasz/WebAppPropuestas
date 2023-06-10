@@ -27,7 +27,7 @@
                   </div>
                 </div>
                 <ul class="list-group list-group rounded-3 pt-2 m-4" data-bs-theme="dark">
-                    <div class="dropdown dropend">
+                    <div class="dropdown dropend-lg">
                       <button type="button" class="btn btn-primary dropdown-toggle d-flex border-2 border-info shadow-sm justify-content-between rounded-4 mb-4 align-items-start bg-secondary" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                         Agregar Profesor
                       </button>

@@ -20,7 +20,6 @@ use App\Http\Controllers\ProfesorPropuestaController;
 //Home
 Route::get('/', [PropuestaController::class, 'index'])->name('home.index');
 
-//Gestion 
 
 //Administrador
 Route::get('/admin',function() {return view('admin/index');})->name('admin.index');

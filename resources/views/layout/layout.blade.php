@@ -55,18 +55,23 @@
             {{--Large Nav--}}
             <nav class="navbar navbar-expand-lg rounded-3 mt-4 p-0 " data-bs-theme="dark">
               <div class="container-fluid p-0">
-                <a class="navbar-brand rounded-3 me-2 shadow-sm " style="background: rgb(31,64,94)" href="{{route('home.index')}}">
-                  <div class="container-fluid d-none d-sm-none d-lg-block rounded-3" style="background: rgb(31,64,94)">
-                    <i class="fa-solid fa-house @if(Route::current()->getName()=='home.index') fa-beat @endif"></i>
+                <div class="container-fluid w-auto d-none d-lg-block bg-primary me-2 rounded-3 shadow-sm p-2">
+                  <div class="row">
+                    <div class="col-12 d-flex align justify-content-center p-0 pe-3 ps-3">
+                      <a class="nav-item rounded-3 shadow-sm text-center @if(Route::current()->getName()=='home.index') text-white @endif " href="{{route('home.index')}}">
+                        <i class="fa-solid fa-house fa-lg @if(Route::current()->getName()=='home.index') fa-beat @endif"></i>
+                      </a>
+                    </div>
                   </div>
-                </a>
+                </div>
+
                 <div class="collapse navbar-collapse p-0">
                   <div class="col-10">
                     <div class="container-fluid rounded-3 shadow-sm" style="background: rgb(31,64,94);
                     background: linear-gradient(90deg, rgba(31,64,94,1) 0%, #4c225b 100%);">
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                          <a class="nav-link @if(Route::current()->getName()=='propuestas.forum' or Route::current()->getName()=='propuestas.show') active @endif" href="{{route('propuestas.forum')}}"><i class="fa-regular fa-comment @if(Route::current()->getName()=='propuestas.forum' or Route::current()->getName()=='propuestas.show') fa-beat @endif" href="{{route('propuestas.forum')}} "></i> Propuestas</a>
+                          <a class="nav-link @if(Route::current()->getName()=='profesor.forum' or Route::current()->getName()=='revision.show') active @endif" href="{{route('profesor.forum')}}"><i class="fa-regular fa-comments @if(Route::current()->getName()=='revision.show' or Route::current()->getName()=='profesor.forum') fa-beat @endif" href="{{route('propuestas.forum')}} "></i> Foro de Propuestas</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link @if(Route::current()->getName()=='propuestas.create') active @endif" href="{{ route('propuestas.create') }}"><i class="fa-regular fa-square-plus @if(Route::current()->getName()=='propuestas.create') fa-beat @endif" href="{{ route('propuestas.create') }} "></i> Crear</a>
@@ -77,16 +82,14 @@
                     <div class="col-2">
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown text-center rounded-3 ms-2 w-100 shadow-sm dropend" style="background: rgb(76, 34, 91);">
-                          <a class="nav-link dropdown-toggle @if(Route::current()->getName()=='admin.index' or Route::current()->getName()=='profesor.forum' or Route::current()->getName()=='revision.show' ) active @endif " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user @if(Route::current()->getName()=='admin.index' or Route::current()->getName()=='profesor.forum' or Route::current()->getName()=='revision.show' ) fa-beat @endif "></i> Gestion
+                          <a class="nav-link dropdown-toggle @if(Route::current()->getName()=='admin.profesores' or Route::current()->getName()=='admin.estudiantes' or Route::current()->getName()=='admin.forum' ) active @endif " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-gear @if(Route::current()->getName()=='admin.estudiantes' or Route::current()->getName()=='admin.profesores' or Route::current()->getName()=='admin.forum' ) fa-spin @endif "></i> Admin
                           </a>
                           <ul class="dropdown-menu shadow-sm rounded-3 ms-2 border-0" data-bs-theme="dark">
                             <li><h3><a class="dropdown-header fs-5 d">Administrador</a></h3></li>
-                            <li><a class="dropdown-item" href="{{route('admin.profesores')}}">Profesores</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.estudiantes') }}">Alumnos</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.forum') }}">Estado de propuestas</a></li>
-                            <li><h3><a class="dropdown-header fs-5 disabled mt-2">Profesor</a></h3></li>
-                            <li><a class="dropdown-item" href="{{route('profesor.forum')}}">Propuestas y comentarios</a></li>
+                            <li><a class="dropdown-item" href="{{route('admin.profesores')}}">Gestionar profesores</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.estudiantes') }}">Gestionar alumnos</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.forum') }}">Editar estado de propuestas</a></li>
                           </ul>
                           
                         </li>

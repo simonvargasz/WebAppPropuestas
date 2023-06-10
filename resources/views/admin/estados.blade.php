@@ -18,7 +18,7 @@
                   <div class="row p-0 m-0">
                     <div class="col-4 p-0 m-0">
                       <h5 class="p-0 m-0">
-                        <a href="{{ route('admin.index') }}" class="btn border border-2 border-info bg-dark rounded-5 shadow-sm m-0 p-0 ps-2 pe-2"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+                        <a href="{{ route('home.index') }}" class="btn border border-2 border-info bg-dark rounded-5 shadow-sm m-0 p-0 ps-2 pe-2"><i class="fa-solid fa-arrow-left"></i> Volver</a>
                       </h5>
                     </div>
                     <div class="col-4 p-0 m-0">

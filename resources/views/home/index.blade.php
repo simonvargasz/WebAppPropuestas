@@ -19,29 +19,41 @@
                 </div>
                 <div class="row">
                     <div class="col-12 vh-auto rounded bg-dark shadow-sm mb-3 p-0">
-                        <ul class="list-group m-2" data-bs-theme="dark">
-                            @foreach ($propuestas as $num=>$propuesta)
-                            <li class="list-group-item bg-light shadow-sm border-2 rounded-4 mb-2 mt-2">
-                                <div class="row">
-                                    <div class="col-4">
-                                        {{$num+1}} | {{date('d/m/Y', strtotime($propuesta->fecha))}} | Creada por {{$propuesta->estudiante->nombre}} {{$propuesta->estudiante->apellido}}
-                                    </div>
-                                    <div class="col-8 d-flex justify-content-end">
-                                            @if($num == 0)
-                                            <p class="m-0 text-white border border-1 rounded-4 pe-2 ps-2 border-warning fw-bold shadow-sm">
-                                                Ultima propuesta 
-                                            </p>
-                                            @endif   
-
-
+                        <h3 class="text-white text-center mt-3">Propuestas recientes</h3>
+                        <hr class="border-white border border-2 rounded-5 w-50 offset-3 shadow-sm">
+                        <ul class="list-group list-group rounded-3 pt-2 m-4" data-bs-theme="dark">
+                            @foreach($propuestas as $num=>$propuesta)
+                              <li class="list-group-item d-flex border-2 shadow-sm justify-content-between rounded-4 mb-3 align-items-start">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold text-white">Propuesta de {{$propuesta->estudiante->nombre}} {{$propuesta->estudiante->apellido}}</div>
+                                              <span class="d-none d-md-block d-lg-block">Creada: {{date('d/m/Y', strtotime($propuesta->fecha))}} </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 p-0 mt-2 mt-lg-0 d-flex">
+                                            <div class="d-grid gap-2 col-12 d-md-flex justify-content-md-end justify-content-lg-center"><a href="{{ route('propuestas.show',['id' => $propuesta->id,'fecha' => $propuesta->fecha]) }}" class="btn btn-secondary border border-2 border-info rounded-5 shadow-sm pb-2" tabindex="-1" role="button" aria-disabled="true">Ver propuesta <i class="fa-solid fa-arrow-right"></i></a></div>
+                                        </div>
+                                        <div class="col-lg-2 ps-2 border-start border-2 d-none d-lg-block">
+                                            <div class="text-end">
+                                              @if($propuesta->estado == 0)
+                                                <span class="badge border border-2 border-waiting-light rounded-pill shadow-sm"><i class="fa-solid fa-clock text-waiting-light"></i> Esperando</span>
+                                              @elseif($propuesta->estado == 1)
+                                              <span class="badge border border-2 border-warning rounded-pill shadow-sm"><i class="fa-solid fa-circle-exclamation text-warning"></i> Modificar</span>
+                                              @elseif($propuesta->estado == 2)
+                                                <span class="badge border border-2 border-danger rounded-pill shadow-sm" ><i class="fa-solid fa-circle-xmark text-danger"></i> Rechazada</span>
+                                              @elseif($propuesta->estado == 3)
+                                              <span class="badge border border-2 border-success rounded-pill shadow-sm"><i class="fa-solid fa-circle-check text-success"></i> Aprobada</span>
+                                              @endif
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                            </li>
-
+          
+                              </li>
                             @endforeach
-
-                        </ul>
+                          </ul>
                     </div>
 
                 </div>

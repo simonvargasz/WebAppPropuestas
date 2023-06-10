@@ -16,11 +16,11 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <div class="card w-100 m-2 border-2 rounded-4 shadow-sm" data-bs-theme="dark">
-                    <div class="card-header border-2 rounded-4 shadow-sm m-0">
+                    <div class="card-header border-2 rounded-0 shadow-sm m-0">
                       <div class="row p-0 m-0">
                         <div class="col-6 p-0 m-0">
                           <h5 class="p-0 m-0">
-                            <a href="{{ route('propuestas.forum') }}" class="btn border border-2 border-info bg-dark rounded-5 shadow-sm m-0 p-0 ps-2 pe-2"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+                            <a href="{{ url()->previous() }}" class="btn border border-2 border-info bg-dark rounded-5 shadow-sm m-0 p-0 ps-2 pe-2"><i class="fa-solid fa-arrow-left"></i> Volver</a>
                           </h5>
                         </div>
                         <div class="col-6 text-end p-0 m-0">
@@ -55,7 +55,7 @@
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <div class="card w-100 m-2 rounded-4 shadow-sm border-2" data-bs-theme="dark">
-                    <div class="card-header rounded-4 border-2 shadow-sm text-start">
+                    <div class="card-header rounded-0 border-2 shadow-sm text-start">
                       <h5>
                         Seccion de comentarios
                       </h5>
@@ -64,11 +64,20 @@
                       <ul class="list-group">
                         @foreach ($profesorPropuestas as $num=>$profesorPropuesta)
                           <li class="list-group-item d-flex justify-content-between align-items-start border-2 border-dark-light rounded-5 mb-3 bg-dark shadow-sm">
-                            <div class="ms-2 me-auto">
-                              <div class="fw-bold"><i class="fa-solid fa-circle-user fa-sm text-info"></i> {{ $profesorPropuesta->profesor->nombre }} {{ $profesorPropuesta->profesor->apellido }}:</div>
+                            <div class="container">
                               <div class="row">
-                                <div class="col-12">
-                                  <p class="m-0 p-0 fs-5">{{ $profesorPropuesta->comentario }}</p>
+                                <div class="col-10">
+                                  <div class="ms-2 me-auto">
+                                    <div class="fw-bold"><i class="fa-solid fa-circle-user fa-sm text-info"></i> {{ $profesorPropuesta->profesor->nombre }} {{ $profesorPropuesta->profesor->apellido }}:</div>
+                                      <div class="row">
+                                      <div class="col-12">
+                                        <p class="m-0 p-0 fs-5">{{ $profesorPropuesta->comentario }}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-2">
+                                  <p class="text-end">{{$profesorPropuesta->fecha}}</p>
                                 </div>
                               </div>
                             </div>
